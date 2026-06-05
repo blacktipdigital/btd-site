@@ -36,7 +36,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; overflow-x: hidden; }
 
     body {
       background: var(--bg);
@@ -1045,6 +1045,10 @@
       .hero h1 { font-size: 2.8rem; }
       .proof-inner { gap: 28px; }
       .proof-sep { display: none; }
+      .footer-top { flex-direction: column; gap: 32px; }
+      .footer-brand { max-width: 100%; }
+      .footer-cols { flex-direction: column; gap: 20px; }
+      .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
     }
     @media (max-width: 480px) {
       :root { --pad: 16px; }
