@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
   <style>
     /* ══════════════════════════════════════
        BTD BRAND TOKENS
@@ -461,12 +463,10 @@
     .features-bg { background: var(--bg); }
 
     .features-header {
-      text-align: center;
       margin-bottom: 52px;
     }
     .features-header .section-sub {
       max-width: 560px;
-      margin: 0 auto;
     }
 
     .features-grid {
@@ -663,6 +663,8 @@
     .comparison-col {
       border-radius: var(--radius);
       padding: 40px 36px;
+      will-change: transform;
+      transition: transform 0.5s cubic-bezier(0.23,1,0.32,1);
     }
     .comparison-col.without {
       background: rgba(255,255,255,0.03);
@@ -880,6 +882,7 @@
       gap: 48px;
       margin-bottom: 52px;
     }
+    .footer-cols { display: flex; gap: 60px; }
     .footer-brand { max-width: 260px; }
     .footer-brand img { height: 58px; width: auto; margin-bottom: 20px; }
     .footer-brand p {
@@ -888,7 +891,6 @@
       color: rgba(172,172,175,0.65);
       line-height: 1.72;
     }
-    .footer-cols { display: flex; gap: 60px; }
     .footer-col h4 {
       font-family: var(--body);
       font-size: 10.5px;
@@ -965,6 +967,41 @@
     body.anim-ready .anim-5 { animation: fadeUp 0.85s 0.64s both cubic-bezier(0.16,1,0.3,1); }
 
     /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      :root { --pad: 24px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .benefits-cols { grid-template-columns: 1fr; gap: 48px; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-top { flex-wrap: wrap; gap: 32px; }
+      .footer-cols { flex-wrap: wrap; gap: 32px; }
+      .nav-links a:not(.always-show) { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 90px var(--pad) 80px; }
+      .hero-shark { display: none; }
+      .section-wrap { padding: 72px var(--pad); }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 0; padding: 70px var(--pad) 60px; }
+      .hero h1 { font-size: 2.8rem; }
+      .proof-inner { gap: 28px; }
+      .proof-sep { display: none; }
+    }
+    @media (max-width: 480px) {
+      :root { --pad: 16px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 15px; }
+      .section-wrap { padding: 52px 16px; }
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .cursor, .cursor-ring { display: none; }
+    }
+
+    /* ══════════════════════════════════════
        LIGHT MODE
     ══════════════════════════════════════ */
     body { transition: background-color 0.35s ease, color 0.35s ease; }
@@ -993,7 +1030,8 @@
     [data-theme="light"] .footer-col ul li a { color: rgba(255,255,255,0.5); }
     [data-theme="light"] .footer-col ul li a:hover { color: #fff; }
     [data-theme="light"] .footer-bottom { border-color: rgba(255,255,255,0.08); }
-    [data-theme="light"] .footer-bottom p { color: rgba(255,255,255,0.32); }
+    [data-theme="light"] .footer-tagline { color: rgba(255,255,255,0.32); opacity: 1; }
+    [data-theme="light"] .hero::after { height: 300px; }
 
     .theme-toggle {
       width: 34px; height: 34px; border-radius: 50%;
@@ -1010,6 +1048,85 @@
     #scrollBar { position:fixed; top:0; left:0; width:0; height:2px; background:var(--cyan); z-index:600; pointer-events:none; }
     /* ── Magnetic button: smoother transform ─────────── */
     .btn-cyan { transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.45s cubic-bezier(0.23,1,0.32,1); }
+    /* ══════════════════════════════════════
+       HAMBURGER & MOBILE MENU
+    ══════════════════════════════════════ */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      padding: 4px; z-index: 1001; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 998;
+      background: #090909; padding: 90px 28px 40px;
+      flex-direction: column; overflow-y: auto;
+      opacity: 0; transition: opacity 0.22s ease;
+    }
+    .mobile-menu.open { opacity: 1; }
+    .mobile-menu-label {
+      font-family: var(--body); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: rgba(172,172,175,0.38); margin-bottom: 4px;
+    }
+    .mobile-menu-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 0; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu-link-icon { font-size: 1.3rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .mobile-menu-link-name {
+      font-family: var(--head); font-size: 1.1rem; font-weight: 700;
+      color: var(--white); line-height: 1.2;
+    }
+    .mobile-menu-link-sub {
+      font-family: var(--body); font-size: 12px;
+      color: rgba(172,172,175,0.45); margin-top: 2px;
+    }
+    .mobile-menu-sep { height: 1px; background: rgba(255,255,255,0.07); margin: 18px 0; }
+    .mobile-menu-nav-link {
+      display: block; padding: 13px 0;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mobile-menu-nav-link:last-of-type { border-bottom: none; }
+    .mobile-menu-ctas {
+      margin-top: auto; padding-top: 28px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .mobile-menu-ctas .btn { justify-content: center; }
+    .mobile-menu-close {
+      position: absolute; top: 22px; right: 24px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.55); font-size: 22px;
+      cursor: pointer; padding: 6px; line-height: 1;
+      transition: color 0.2s;
+    }
+    .mobile-menu-close:hover { color: #fff; }
+    .mobile-menu-theme-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 0; background: none; border: none;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      width: 100%; text-align: left;
+    }
+    .mobile-menu-theme-btn:hover { color: #fff; }
+    .mobile-menu-theme-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-links { display: none !important; }
+      .nav-actions { display: none; }
+    }
   </style>
   <script>
     (function(){var t=localStorage.getItem('btd-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);})();
@@ -1071,15 +1188,50 @@
       </div>
       <a href="#features">What's Included</a>
       <a href="#process">How It Works</a>
-      <a href="#comparison">Why It Matters</a>
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">☀</button>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-outline">Ask a Question</a>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Activate Shark Flow™</a>
+      <a href="contact.html" class="btn btn-outline">Free Audit</a>
+      <a href="contact.html" class="btn btn-cyan">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <div class="mobile-menu-label">Services</div>
+  <a href="websites.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">🖥️</span>
+    <div><div class="mobile-menu-link-name">Apex Sites™</div><div class="mobile-menu-link-sub">Websites that convert</div></div>
+  </a>
+  <a href="sharkflow.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">⚡</span>
+    <div><div class="mobile-menu-link-name">Shark Flow™</div><div class="mobile-menu-link-sub">CRM &amp; automation system</div></div>
+  </a>
+  <a href="meta-ads.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📱</span>
+    <div><div class="mobile-menu-link-name">Predator Ads™</div><div class="mobile-menu-link-sub">Meta advertising</div></div>
+  </a>
+  <a href="gbp.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📍</span>
+    <div><div class="mobile-menu-link-name">Pack Leader™</div><div class="mobile-menu-link-sub">Google Business &amp; local SEO</div></div>
+  </a>
+  <div class="mobile-menu-sep"></div>
+  <a href="index.html" class="mobile-menu-nav-link">Home</a>
+  <a href="index.html#process" class="mobile-menu-nav-link">How It Works</a>
+  <a href="contact.html" class="mobile-menu-nav-link">Contact</a>
+  <button class="mobile-menu-theme-btn" id="themeToggleMobile">
+    <span class="mobile-menu-theme-icon">☀</span>
+    <span>Toggle light / dark</span>
+  </button>
+  <div class="mobile-menu-ctas">
+    <a href="contact.html" class="btn btn-outline">Free Audit</a>
+    <a href="contact.html" class="btn btn-cyan">Get Started</a>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════════
@@ -1097,7 +1249,7 @@
     <h1 class="anim-2">Shark Flow™</h1>
 
     <p class="hero-sub anim-3">
-      Stop losing leads to slow follow-up. Shark Flow™ contacts every new lead in under 60 seconds, books appointments automatically, and nurtures prospects for months — all without you lifting a finger.
+      Stop losing leads to slow follow-up. Shark Flow™ contacts every new lead in under 60 seconds, books appointments automatically, and nurtures prospects for months. All without you lifting a finger.
     </p>
 
     <div class="hero-pills anim-4">
@@ -1108,7 +1260,7 @@
     </div>
 
     <div class="hero-ctas anim-5">
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Activate Shark Flow™ →</a>
+      <a href="contact.html" class="btn btn-cyan">Activate Shark Flow™ →</a>
       <a href="#process" class="btn btn-outline">See How It Works</a>
     </div>
   </div>
@@ -1156,7 +1308,7 @@
     <div class="features-header" data-reveal>
       <div class="section-eyebrow">What's Included</div>
       <h2 class="section-h2">Everything Runs Automatically.<br>You Just Show Up.</h2>
-      <p class="section-sub">Six automation layers working around the clock so you can focus on doing the work, not chasing the work.</p>
+      <p class="section-sub">Six automation layers working around the clock so you can focus on doing the work, not chasing it.</p>
     </div>
 
     <div class="features-grid" data-stagger>
@@ -1165,7 +1317,7 @@
       <div class="feature-card" data-reveal>
         <div class="feature-icon">⚡</div>
         <h3>60-Second Lead Response</h3>
-        <p>The moment a lead comes in — from your website, an ad, or a form — Shark Flow™ sends a personalized text and email within 60 seconds. Speed wins.</p>
+        <p>The moment a lead comes in from your website, an ad, or a form, Shark Flow™ sends a personalized text and email within 60 seconds. Speed wins.</p>
       </div>
 
       <div class="feature-card" data-reveal>
@@ -1177,13 +1329,13 @@
       <div class="feature-card" data-reveal>
         <div class="feature-icon">💬</div>
         <h3>Multi-Channel Follow-Up</h3>
-        <p>Text, email, and voicemail drops working in sequence. If they don't respond to one, the next channel picks it up automatically.</p>
+        <p>Text, email, and voicemail drops working in sequence. If they don't respond to one channel, the next one picks it up automatically.</p>
       </div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">🔄</div>
         <h3>Long-Term Nurture Sequences</h3>
-        <p>Cold leads don't disappear — they go into a nurture sequence that follows up for weeks or months. When they're ready, you're the first call they make.</p>
+        <p>Cold leads don't disappear. They go into a nurture sequence that follows up for weeks or months. When they're ready, you're the first call they make.</p>
       </div>
 
       <div class="feature-card" data-reveal>
@@ -1213,7 +1365,7 @@
         <h2 class="section-h2">Your Competitors Are Still Calling Leads Back Manually.</h2>
         <p class="benefits-body">While they're playing phone tag, Shark Flow™ has already contacted the lead, qualified them, and scheduled the appointment. That's the gap. And it compounds every single day.</p>
         <ul class="includes-list">
-          <li>Respond to every lead instantly — even at 2am</li>
+          <li>Respond to every lead instantly, even at 2am</li>
           <li>Fill your calendar without managing a single follow-up</li>
           <li>Never lose a lead to a competitor who responded faster</li>
           <li>Build a review library that dominates local search</li>
@@ -1317,7 +1469,7 @@
     <h2 data-reveal>Ready to Stop Losing Leads?</h2>
     <p data-reveal>Every day without Shark Flow™ is another day of slow follow-ups, lost jobs, and leads going to whoever called them back first.</p>
     <div data-reveal>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Activate Shark Flow™ →</a>
+      <a href="contact.html" class="btn btn-cyan">Activate Shark Flow™ →</a>
     </div>
   </div>
 </section>
@@ -1334,7 +1486,7 @@
           src="Brand/Logo/White BTD Wordmark trans.svg"
           alt="Blacktip Digital"
           height="58"
-          onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-family:Syne,sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.02em;color:#fff;display:block;margin-bottom:20px\'>Blacktip<span style=\'color:#00D4FF\'>.</span></span>')"
+          onerror="this.style.display='none'"
         >
         <p>Full-stack digital agency serving local service businesses across the US. Zero fluff. Zero excuses. Just results.</p>
       </div>
@@ -1351,10 +1503,9 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#process">How It Works</a></li>
-            <li><a href="#benefits">Results</a></li>
-            <li><a href="index.html">About</a></li>
-            <li><a href="mailto:hello@blacktipdigital.com">Contact</a></li>
+            <li><a href="index.html#process">How It Works</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1461,6 +1612,25 @@
 
   document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
 
+  /* ── COMPARISON CARD 3D TILT ── */
+  document.querySelectorAll('.comparison-col').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x  = e.clientX - rect.left;
+      var y  = e.clientY - rect.top;
+      var cx = rect.width  / 2;
+      var cy = rect.height / 2;
+      var rotY =  ((x - cx) / cx) * 8;
+      var rotX = -((y - cy) / cy) * 6;
+      card.style.transition = 'transform 0.08s ease';
+      card.style.transform  = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale3d(1.02,1.02,1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1)';
+      card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
+
 })();
 
 // ── Theme toggle ───────────────────────────────────────────────────
@@ -1490,7 +1660,7 @@
 
 // ── Magnetic CTA buttons ───────────────────────────────────────────
 (function(){
-  var btns      = Array.from(document.querySelectorAll('.btn-cyan, .nav-cta'));
+  var btns      = Array.from(document.querySelectorAll('.btn-primary, .btn-cyan, .nav-cta'));
   var strength  = 0.45;
   var threshold = 110;
   document.addEventListener('mousemove', function(e) {
@@ -1509,6 +1679,49 @@
       }
     });
   }, { passive: true });
+})();
+
+// ── Mobile hamburger menu ─────────────────────────────────────────
+(function(){
+  var hamburger = document.getElementById('navHamburger');
+  var menu = document.getElementById('mobileMenu');
+  var closeBtn = document.getElementById('mobileMenuClose');
+  var mobileThemeBtn = document.getElementById('themeToggleMobile');
+  if (!hamburger || !menu) return;
+  function openMenu() {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function(){ menu.classList.add('open'); });
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(function(){ menu.style.display = ''; }, 230);
+  }
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+  if (mobileThemeBtn) {
+    var icon = mobileThemeBtn.querySelector('.mobile-menu-theme-icon');
+    function syncIcon() {
+      if (icon) icon.textContent = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? '☀' : '☾';
+    }
+    syncIcon();
+    mobileThemeBtn.addEventListener('click', function() {
+      var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('btd-theme', t);
+      var main = document.getElementById('themeToggle');
+      if (main) main.textContent = t === 'dark' ? '☀' : '☾';
+      syncIcon();
+    });
+  }
 })();
 </script>
 

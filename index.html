@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
   <style>
     /* ══════════════════════════════════════
        BTD BRAND TOKENS
@@ -422,6 +424,7 @@
       position: relative;
       overflow: hidden;
       transition: background 0.25s;
+      cursor: pointer;
     }
     .service-card:hover { background: #2f2f2f; }
 
@@ -900,6 +903,7 @@
     /* Service cards */
     [data-theme="light"] .service-card:hover { background: #F0F0F0; }
     [data-theme="light"] .proof-sep { background: rgba(0,0,0,0.12); }
+    [data-theme="light"] .hero::after { height: 300px; }
 
     /* Theme toggle button (lives in nav, always dark-styled) */
     .theme-toggle {
@@ -917,6 +921,220 @@
     #scrollBar { position:fixed; top:0; left:0; width:0; height:2px; background:var(--cyan); z-index:600; pointer-events:none; }
     /* ── Magnetic button: smoother transform ─────────── */
     .btn-cyan { transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.45s cubic-bezier(0.23,1,0.32,1); }
+
+    /* ══════════════════════════════════════
+       SERVICES — SPLIT LAYOUT (1×4 + video)
+    ══════════════════════════════════════ */
+    .services-split {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* override grid to single column */
+    .services-split .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* compact horizontal card: icon + title in one row */
+    .services-split .service-card {
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .services-split .service-card p,
+    .services-split .service-pill { display: none; }
+    .services-split .service-icon {
+      width: 38px; height: 38px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+    .services-split .service-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0;
+      line-height: 1.35;
+    }
+
+    /* active card — inset left accent + brighter bg */
+    .service-card.svc-active {
+      background: #313131;
+      box-shadow: inset 3px 0 0 var(--cyan);
+    }
+    .service-card.svc-active::before { opacity: 1; }
+    [data-theme="light"] .service-card.svc-active { background: #EBEBEB; }
+
+    /* ── Preview panel ── */
+    .services-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: sticky;
+      top: 90px;
+    }
+
+    .preview-screen {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      border: 1px solid rgba(0,212,255,0.2);
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0,212,255,0.07), 0 24px 64px rgba(0,0,0,0.55);
+    }
+
+    .preview-placeholder {
+      position: absolute; inset: 0; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px;
+      transition: opacity 0.4s ease;
+      background-color: #0b0f1e;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .placeholder-icon { font-size: 2.4rem; }
+    .placeholder-text {
+      font-family: var(--body);
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(172,172,175,0.32);
+    }
+
+    #serviceVideo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0; transition: opacity 0.4s ease;
+      z-index: 2;
+    }
+    #serviceVideo.ready { opacity: 1; }
+
+    .preview-caption {
+      font-family: var(--body);
+      font-size: 12px; color: rgba(172,172,175,0.5);
+      text-align: right;
+    }
+    .preview-caption strong { color: var(--cyan); font-weight: 600; }
+
+    @media (max-width: 960px) {
+      .services-split { grid-template-columns: 1fr; }
+      .services-preview { order: -1; position: static; }
+    }
+    @media (max-width: 768px) {
+      :root { --pad: 24px; }
+      .hero { padding: 90px var(--pad) 80px; }
+      .hero-shark { display: none; }
+      .section-wrap { padding: 72px var(--pad); }
+      .services-preview { display: none; }
+      .services-split { gap: 0; }
+      .services-split .service-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+        gap: 10px;
+      }
+      .services-split .service-card p { display: block; font-size: 14px; }
+      .services-split .service-card h3 { font-size: 1.1rem; }
+      .steps-grid { grid-template-columns: 1fr; border-radius: 14px; }
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: 0; padding: 70px var(--pad) 60px; }
+      .hero h1 { font-size: 2.8rem; }
+      .proof-inner { gap: 28px; }
+      .proof-sep { display: none; }
+    }
+    @media (max-width: 480px) {
+      :root { --pad: 16px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 15px; }
+      .section-wrap { padding: 52px 16px; }
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .cursor, .cursor-ring { display: none; }
+    }
+
+    /* ══════════════════════════════════════
+       HAMBURGER & MOBILE MENU
+    ══════════════════════════════════════ */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      padding: 4px; z-index: 1001; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 998;
+      background: #090909; padding: 90px 28px 40px;
+      flex-direction: column; overflow-y: auto;
+      opacity: 0; transition: opacity 0.22s ease;
+    }
+    .mobile-menu.open { opacity: 1; }
+    .mobile-menu-label {
+      font-family: var(--body); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: rgba(172,172,175,0.38); margin-bottom: 4px;
+    }
+    .mobile-menu-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 0; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu-link-icon { font-size: 1.3rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .mobile-menu-link-name {
+      font-family: var(--head); font-size: 1.1rem; font-weight: 700;
+      color: var(--white); line-height: 1.2;
+    }
+    .mobile-menu-link-sub {
+      font-family: var(--body); font-size: 12px;
+      color: rgba(172,172,175,0.45); margin-top: 2px;
+    }
+    .mobile-menu-sep { height: 1px; background: rgba(255,255,255,0.07); margin: 18px 0; }
+    .mobile-menu-nav-link {
+      display: block; padding: 13px 0;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mobile-menu-nav-link:last-of-type { border-bottom: none; }
+    .mobile-menu-ctas {
+      margin-top: auto; padding-top: 28px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .mobile-menu-ctas .btn { justify-content: center; }
+    .mobile-menu-close {
+      position: absolute; top: 22px; right: 24px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.55); font-size: 22px;
+      cursor: pointer; padding: 6px; line-height: 1;
+      transition: color 0.2s;
+    }
+    .mobile-menu-close:hover { color: #fff; }
+    .mobile-menu-theme-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 0; background: none; border: none;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      width: 100%; text-align: left;
+    }
+    .mobile-menu-theme-btn:hover { color: #fff; }
+    .mobile-menu-theme-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-links { display: none !important; }
+      .nav-actions { display: none; }
+    }
   </style>
   <script>
     (function(){var t=localStorage.getItem('btd-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);})();
@@ -993,15 +1211,51 @@
         </div>
       </div>
       <a href="#process">How It Works</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">☀</button>
-      <a href="#contact" class="btn btn-outline">Free Audit</a>
-      <a href="#contact" class="btn btn-cyan">Get Started</a>
+      <a href="contact.html" class="btn btn-outline">Free Audit</a>
+      <a href="contact.html" class="btn btn-cyan">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <div class="mobile-menu-label">Services</div>
+  <a href="websites.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">🖥️</span>
+    <div><div class="mobile-menu-link-name">Apex Sites™</div><div class="mobile-menu-link-sub">Websites that convert</div></div>
+  </a>
+  <a href="sharkflow.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">⚡</span>
+    <div><div class="mobile-menu-link-name">Shark Flow™</div><div class="mobile-menu-link-sub">CRM &amp; automation system</div></div>
+  </a>
+  <a href="meta-ads.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📱</span>
+    <div><div class="mobile-menu-link-name">Predator Ads™</div><div class="mobile-menu-link-sub">Meta advertising</div></div>
+  </a>
+  <a href="gbp.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📍</span>
+    <div><div class="mobile-menu-link-name">Pack Leader™</div><div class="mobile-menu-link-sub">Google Business &amp; local SEO</div></div>
+  </a>
+  <div class="mobile-menu-sep"></div>
+  <a href="index.html" class="mobile-menu-nav-link">Home</a>
+  <a href="#process" class="mobile-menu-nav-link">How It Works</a>
+  <a href="contact.html" class="mobile-menu-nav-link">Contact</a>
+  <button class="mobile-menu-theme-btn" id="themeToggleMobile">
+    <span class="mobile-menu-theme-icon">☀</span>
+    <span>Toggle light / dark</span>
+  </button>
+  <div class="mobile-menu-ctas">
+    <a href="contact.html" class="btn btn-outline">Free Audit</a>
+    <a href="contact.html" class="btn btn-cyan">Get Started</a>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════════
@@ -1028,7 +1282,7 @@
     </p>
 
     <div class="hero-ctas anim-4">
-      <a href="#contact" class="btn btn-cyan">Get Started →</a>
+      <a href="contact.html" class="btn btn-cyan">Get Started →</a>
       <a href="#services" class="btn btn-outline">See Our Services</a>
     </div>
   </div>
@@ -1081,35 +1335,55 @@
       <p class="section-sub">Four weapons. One system. Built for local service businesses that are done being invisible.</p>
     </div>
 
-    <div class="services-grid" data-stagger>
-      <div class="grid-glow" id="servicesGlow"></div>
+    <div class="services-split">
 
-      <div class="service-card" data-reveal>
-        <div class="service-icon">🖥️</div>
-        <h3>Sites That Work Like Salespeople</h3>
-        <p>Conversion-focused, blazing fast, and built to rank. Your website should close leads at midnight. Ours do. No digital brochures. No dead weight. Just a machine that turns visitors into calls.</p>
-        <div class="service-pill">Websites</div>
+      <!-- 1×4 card list -->
+      <div class="services-grid" id="servicesGrid" data-stagger>
+        <div class="grid-glow" id="servicesGlow"></div>
+
+        <div class="service-card svc-active" data-svc="0" data-href="websites.html" data-reveal>
+          <div class="service-icon">🖥️</div>
+          <h3>Sites That Work Like Salespeople</h3>
+          <!-- description preserved -->
+          <p style="display:none">Conversion-focused, blazing fast, and built to rank. Your website should close leads at midnight. Ours do. No digital brochures. No dead weight. Just a machine that turns visitors into calls.</p>
+          <div class="service-pill" style="display:none">Websites</div>
+        </div>
+
+        <div class="service-card" data-svc="1" data-href="sharkflow.html" data-reveal>
+          <div class="service-icon">⚡</div>
+          <h3>Stop Chasing Leads. Let the System Do It.</h3>
+          <p style="display:none">Shark Flow™ is our done-for-you CRM and automation system. Instant follow-up, automated booking, and nurture sequences that work around the clock.</p>
+          <div class="service-pill" style="display:none">Shark Flow™</div>
+        </div>
+
+        <div class="service-card" data-svc="2" data-href="meta-ads.html" data-reveal>
+          <div class="service-icon">📱</div>
+          <h3>Ads That Bring Real Leads, Not Just Clicks.</h3>
+          <p style="display:none">Hyper-targeted Meta campaigns across Facebook and Instagram, built for home services and med spas. We run them, optimize them daily, and don't stop until they work.</p>
+          <div class="service-pill" style="display:none">Meta Ads</div>
+        </div>
+
+        <div class="service-card" data-svc="3" data-href="gbp.html" data-reveal>
+          <div class="service-icon">📍</div>
+          <h3>Own the First Page in Your City.</h3>
+          <p style="display:none">Reviews, rankings, and local presence. We build all three. When someone in your city searches what you do, you should be the first thing they see. Not your competitor. You.</p>
+          <div class="service-pill" style="display:none">Google Business Profile</div>
+        </div>
+
       </div>
 
-      <div class="service-card" data-reveal>
-        <div class="service-icon">⚡</div>
-        <h3>Stop Chasing Leads. Let the System Do It.</h3>
-        <p>Shark Flow™ is our done-for-you CRM and automation system. Instant follow-up, automated booking, and nurture sequences that work around the clock. Your competitors are still calling leads back manually. You won't be.</p>
-        <div class="service-pill">Shark Flow™</div>
-      </div>
-
-      <div class="service-card" data-reveal>
-        <div class="service-icon">📱</div>
-        <h3>Ads That Bring Real Leads, Not Just Clicks.</h3>
-        <p>Hyper-targeted Meta campaigns across Facebook and Instagram, built for home services and med spas. We run them, optimize them daily, and don't stop until they work. No guessing. No hoping. Just a system that performs.</p>
-        <div class="service-pill">Meta Ads</div>
-      </div>
-
-      <div class="service-card" data-reveal>
-        <div class="service-icon">📍</div>
-        <h3>Own the First Page in Your City.</h3>
-        <p>Reviews, rankings, and local presence. We build all three. When someone in your city searches what you do, you should be the first thing they see. Not your competitor. You.</p>
-        <div class="service-pill">Google Business Profile</div>
+      <!-- Video preview panel -->
+      <div class="services-preview" id="servicesPreview">
+        <div class="preview-screen" id="previewScreen">
+          <div class="preview-placeholder" id="previewPlaceholder">
+            <span class="placeholder-icon" id="placeholderIcon">🖥️</span>
+            <span class="placeholder-text">Hover a service to preview</span>
+          </div>
+          <video id="serviceVideo" autoplay loop muted playsinline></video>
+        </div>
+        <div class="preview-caption">
+          Now previewing — <strong id="previewName">Sites That Work Like Salespeople</strong>
+        </div>
       </div>
 
     </div>
@@ -1183,7 +1457,7 @@
     <h2 data-reveal>Ready to Dominate<br>Your Market?</h2>
     <p data-reveal>Most of your competitors are asleep on digital. This is your opening to pull ahead and make it permanent.</p>
     <div data-reveal>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Get Started Today →</a>
+      <a href="contact.html" class="btn btn-cyan">Get Started Today →</a>
     </div>
   </div>
 </section>
@@ -1215,7 +1489,7 @@
             <li><a href="#process">How It Works</a></li>
             <li><a href="#results">Results</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1391,6 +1665,60 @@
   }, { passive: true });
 })();
 
+// ── Service video preview ──────────────────────────────────────────
+(function () {
+  var SVC_MAP = [
+    { src: '../Content - David Serur/remotion-videos/out/WebsiteService.mp4', icon: '🖥️', name: 'Sites That Work Like Salespeople' },
+    { src: '../Content - David Serur/remotion-videos/out/CRMService.mp4',     icon: '⚡',  name: 'Shark Flow™ — CRM & Automation' },
+    { src: '../Content - David Serur/remotion-videos/out/LeadGenService.mp4', icon: '📱',  name: 'Meta Ads — Lead Generation' },
+    { src: '../Content - David Serur/remotion-videos/out/GBPService.mp4',     icon: '📍',  name: 'Google Business Profile' },
+  ];
+
+  var cards       = Array.from(document.querySelectorAll('.service-card[data-svc]'));
+  var vid         = document.getElementById('serviceVideo');
+  var nameEl      = document.getElementById('previewName');
+  var placeholder = document.getElementById('previewPlaceholder');
+  var iconEl      = document.getElementById('placeholderIcon');
+  var activeIdx   = -1;
+
+  if (!vid || !cards.length) return;
+
+  function activate(idx) {
+    if (idx === activeIdx) return;
+    activeIdx = idx;
+    var svc = SVC_MAP[idx];
+
+    cards.forEach(function (c, i) { c.classList.toggle('svc-active', i === idx); });
+    nameEl.textContent = svc.name;
+    iconEl.textContent = svc.icon;
+
+    vid.classList.remove('ready');
+    placeholder.style.opacity = '1';
+    vid.src = svc.src;
+    vid.load();
+    vid.play().catch(function () {});
+  }
+
+  vid.addEventListener('canplay', function () {
+    vid.classList.add('ready');
+    placeholder.style.opacity = '0';
+  });
+  vid.addEventListener('error', function () {
+    vid.classList.remove('ready');
+    placeholder.style.opacity = '1';
+  });
+
+  cards.forEach(function (card) {
+    card.addEventListener('mouseenter', function () { activate(+card.dataset.svc); });
+    card.addEventListener('click', function () {
+      activate(+card.dataset.svc);
+      if (card.dataset.href) { window.location.href = card.dataset.href; }
+    });
+  });
+
+  activate(0);
+})();
+
 // ── Magnetic CTA buttons ───────────────────────────────────────────
 (function(){
   var btns      = Array.from(document.querySelectorAll('.btn-cyan, .nav-cta'));
@@ -1412,6 +1740,49 @@
       }
     });
   }, { passive: true });
+})();
+
+// ── Mobile hamburger menu ─────────────────────────────────────────
+(function(){
+  var hamburger = document.getElementById('navHamburger');
+  var menu = document.getElementById('mobileMenu');
+  var closeBtn = document.getElementById('mobileMenuClose');
+  var mobileThemeBtn = document.getElementById('themeToggleMobile');
+  if (!hamburger || !menu) return;
+  function openMenu() {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function(){ menu.classList.add('open'); });
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(function(){ menu.style.display = ''; }, 230);
+  }
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+  if (mobileThemeBtn) {
+    var icon = mobileThemeBtn.querySelector('.mobile-menu-theme-icon');
+    function syncIcon() {
+      if (icon) icon.textContent = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? '☀' : '☾';
+    }
+    syncIcon();
+    mobileThemeBtn.addEventListener('click', function() {
+      var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('btd-theme', t);
+      var main = document.getElementById('themeToggle');
+      if (main) main.textContent = t === 'dark' ? '☀' : '☾';
+      syncIcon();
+    });
+  }
 })();
 </script>
 

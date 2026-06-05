@@ -4,33 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Predator Ads™ — Meta Advertising for Local Businesses | Blacktip Digital</title>
-  <meta name="description" content="Hyper-targeted Facebook & Instagram ad campaigns built to bring real booked jobs — tracked, optimized, and accountable. Predator Ads™ by Blacktip Digital.">
+  <meta name="description" content="Predator Ads™ by Blacktip Digital runs hyper-targeted Facebook and Instagram campaigns for local service businesses. Real leads, not just clicks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
   <style>
     /* ══════════════════════════════════════
        BTD BRAND TOKENS
     ══════════════════════════════════════ */
     :root {
-      --bg:          #1C1C1C;
-      --bg-alt:      #242424;
-      --bg-card:     #2a2a2a;
-      --bg-hero:     #0f0f0f;
-      --bg-foot:     #111111;
-      --cyan:        #00D4FF;
-      --cyan-dim:    rgba(0,212,255,0.10);
-      --cyan-glow:   rgba(0,212,255,0.22);
-      --cyan-border: rgba(0,212,255,0.22);
-      --white:       #FFFFFF;
-      --gray:        #ACACAF;
-      --border:      rgba(255,255,255,0.08);
-      --border-2:    rgba(255,255,255,0.13);
-      --head:        'Syne', sans-serif;
-      --body:        'DM Sans', sans-serif;
-      --max-w:       1240px;
-      --pad:         48px;
-      --radius:      16px;
+      --bg:         #1C1C1C;
+      --bg-alt:     #242424;
+      --bg-card:    #2a2a2a;
+      --bg-hero:    #0f0f0f;
+      --bg-foot:    #111111;
+      --cyan:       #00D4FF;
+      --cyan-dim:   rgba(0,212,255,0.10);
+      --cyan-glow:  rgba(0,212,255,0.22);
+      --cyan-border:rgba(0,212,255,0.22);
+      --white:      #FFFFFF;
+      --gray:       #ACACAF;
+      --border:     rgba(255,255,255,0.08);
+      --border-2:   rgba(255,255,255,0.13);
+      --head:       'Syne', sans-serif;
+      --body:       'DM Sans', sans-serif;
+      --max-w:      1240px;
+      --pad:        48px;
+      --radius:     16px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -137,7 +139,9 @@
     ══════════════════════════════════════ */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 500;
       height: 72px;
       border-bottom: 1px solid transparent;
@@ -155,7 +159,10 @@
       display: flex;
       align-items: center;
     }
-    .nav-logo { margin-right: 40px; flex-shrink: 0; }
+    .nav-logo {
+      margin-right: 40px;
+      flex-shrink: 0;
+    }
     .nav-logo-svg { height: 40px; width: auto; display: block; }
     .nav-links {
       display: flex;
@@ -176,7 +183,9 @@
     .nav-actions { display: flex; align-items: center; gap: 8px; }
     .nav-actions .btn { padding: 8px 18px; font-size: 13px; }
 
-    /* ── Dropdown ── */
+    /* ══════════════════════════════════════
+       NAV DROPDOWN
+    ══════════════════════════════════════ */
     .nav-dropdown { position: relative; }
     .nav-dropdown-trigger {
       display: inline-flex; align-items: center; gap: 5px;
@@ -211,10 +220,6 @@
     .dropdown-item-name { font-family: var(--head); font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
     .dropdown-item-desc { font-family: var(--body); font-size: 11px; color: rgba(172,172,175,0.55); }
 
-    /* active page highlight in dropdown */
-    .dropdown-item.active { background: rgba(0,212,255,0.06); }
-    .dropdown-item.active .dropdown-item-name { color: var(--cyan); }
-
     /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
@@ -226,7 +231,7 @@
       justify-content: center;
       text-align: center;
       padding: 120px var(--pad) 160px;
-      background: linear-gradient(165deg, #080808 0%, #0f0f0f 45%, #1a1818 100%);
+      background: linear-gradient(165deg, #080808 0%, #0f0f0f 45%, #0a1012 100%);
       overflow: hidden;
     }
 
@@ -237,9 +242,11 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: 25%; left: 50%;
+      top: 25%;
+      left: 50%;
       transform: translateX(-50%);
-      width: 900px; height: 600px;
+      width: 900px;
+      height: 600px;
       background: radial-gradient(ellipse, rgba(0,212,255,0.065) 0%, transparent 65%);
       pointer-events: none;
       animation: heroGlowPulse 6s ease-in-out infinite;
@@ -247,7 +254,9 @@
     .hero::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 160px;
       background: linear-gradient(transparent, var(--bg));
       pointer-events: none;
@@ -255,9 +264,11 @@
 
     .hero-shark {
       position: absolute;
-      right: -4%; top: 50%;
+      right: -4%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 540px; height: 540px;
+      width: 540px;
+      height: 540px;
       opacity: 0.04;
       pointer-events: none;
     }
@@ -284,14 +295,13 @@
 
     .hero h1 {
       font-family: var(--head);
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
       font-weight: 800;
-      line-height: 1.02;
-      letter-spacing: -0.035em;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
       color: var(--white);
       margin-bottom: 26px;
     }
-    .hero h1 .accent { color: var(--cyan); }
 
     .hero-sub {
       font-family: var(--body);
@@ -309,22 +319,24 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 44px;
     }
     .hero-pill {
       display: inline-flex;
       align-items: center;
-      padding: 5px 14px;
+      gap: 6px;
+      padding: 6px 14px;
       border-radius: 9999px;
       border: 1px solid var(--cyan-border);
       background: var(--cyan-dim);
       font-family: var(--body);
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--cyan);
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
     }
+    .hero-pill::before { content: '✓'; font-size: 11px; opacity: 0.8; }
 
     .hero-ctas {
       display: flex;
@@ -334,9 +346,11 @@
     }
     .hero-ctas .btn { padding: 14px 34px; font-size: 15px; }
 
+    /* scroll indicator */
     .hero-scroll {
       position: absolute;
-      bottom: 36px; left: 50%;
+      bottom: 36px;
+      left: 50%;
       transform: translateX(-50%);
       z-index: 2;
       display: flex;
@@ -353,13 +367,14 @@
       color: rgba(172,172,175,0.4);
     }
     .scroll-line {
-      width: 1px; height: 40px;
+      width: 1px;
+      height: 40px;
       background: linear-gradient(var(--cyan), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
     @keyframes scrollPulse {
       0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50%       { opacity: 0.8; transform: scaleY(1.1); }
+      50% { opacity: 0.8; transform: scaleY(1.1); }
     }
 
     /* ══════════════════════════════════════
@@ -401,7 +416,8 @@
       color: var(--gray);
     }
     .proof-sep {
-      width: 1px; height: 44px;
+      width: 1px;
+      height: 44px;
       background: var(--border-2);
       flex-shrink: 0;
     }
@@ -432,8 +448,6 @@
       color: var(--white);
       margin-bottom: 16px;
     }
-    .section-h2 .accent { color: var(--cyan); }
-
     .section-sub {
       font-family: var(--body);
       font-size: 15.5px;
@@ -441,13 +455,19 @@
       line-height: 1.72;
       max-width: 520px;
     }
+    .accent-cyan { color: var(--cyan); }
 
     /* ══════════════════════════════════════
        FEATURES GRID (3-col, 6 cards)
     ══════════════════════════════════════ */
     .features-bg { background: var(--bg); }
 
-    .features-header { margin-bottom: 52px; }
+    .features-header {
+      margin-bottom: 52px;
+    }
+    .features-header .section-sub {
+      max-width: 560px;
+    }
 
     .features-grid {
       display: grid;
@@ -480,19 +500,6 @@
     }
     .feature-card:hover::before { opacity: 1; }
 
-    .grid-glow {
-      position: absolute;
-      width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.4s;
-      mix-blend-mode: screen;
-      z-index: 1;
-      will-change: left, top;
-    }
-
     .feature-icon {
       width: 46px; height: 46px;
       border-radius: 12px;
@@ -502,13 +509,13 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
       flex-shrink: 0;
     }
 
     .feature-card h3 {
       font-family: var(--head);
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--white);
       letter-spacing: -0.02em;
@@ -522,8 +529,22 @@
       line-height: 1.72;
     }
 
+    /* grid glow */
+    .grid-glow {
+      position: absolute;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+      mix-blend-mode: screen;
+      z-index: 1;
+      will-change: left, top;
+    }
+
     /* ══════════════════════════════════════
-       BENEFITS (text left + image right)
+       BENEFITS — two-col layout
     ══════════════════════════════════════ */
     .benefits-bg {
       background: var(--bg-alt);
@@ -538,15 +559,12 @@
       align-items: center;
     }
 
-    .benefits-left {}
-
     .benefits-body {
       font-family: var(--body);
       font-size: 15.5px;
       color: var(--gray);
-      line-height: 1.78;
-      margin-bottom: 36px;
-      max-width: 480px;
+      line-height: 1.72;
+      margin-bottom: 32px;
     }
 
     .includes-list {
@@ -560,13 +578,14 @@
       align-items: flex-start;
       gap: 12px;
       font-family: var(--body);
-      font-size: 14.5px;
+      font-size: 15px;
       color: var(--white);
       line-height: 1.5;
     }
     .includes-list li::before {
       content: '';
-      width: 18px; height: 18px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: var(--cyan-dim);
       border: 1.5px solid var(--cyan);
@@ -575,23 +594,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%2300D4FF' d='M2 6.5l2.8 2.8 5.2-5.6'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%2300D4FF' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 10px;
     }
 
     .img-placeholder {
       background: var(--bg-card);
       border: 1px solid var(--border-2);
       border-radius: var(--radius);
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4/3;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 16px;
-      padding: 40px;
       position: relative;
       overflow: hidden;
     }
@@ -599,65 +616,43 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 50% 40%, rgba(0,212,255,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
     .img-placeholder-icon {
-      font-size: 36px;
-      opacity: 0.4;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      position: relative;
+      z-index: 1;
     }
-    .img-placeholder p {
+    .img-placeholder span {
       font-family: var(--body);
       font-size: 13px;
       color: rgba(172,172,175,0.45);
-      text-align: center;
-      line-height: 1.5;
-    }
-    /* mock dashboard lines inside placeholder */
-    .img-placeholder-mock {
-      width: 100%;
-      max-width: 260px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 8px;
-    }
-    .mock-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .mock-bar-wrap {
-      flex: 1;
-      height: 6px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-    .mock-bar {
-      height: 100%;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, rgba(0,212,255,0.5), rgba(0,212,255,0.15));
-    }
-    .mock-label {
-      font-family: var(--body);
-      font-size: 10px;
-      color: rgba(172,172,175,0.35);
-      width: 52px;
-      text-align: right;
-      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
     }
 
     /* ══════════════════════════════════════
-       COMPARISON
+       COMPARISON TABLE
     ══════════════════════════════════════ */
     .comparison-bg { background: var(--bg); }
 
     .comparison-header {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
     }
-    .comparison-header .section-sub { max-width: 520px; margin: 0 auto; }
+    .comparison-header .section-sub {
+      max-width: 520px;
+      margin: 0 auto;
+    }
 
     .comparison-grid {
       display: grid;
@@ -668,89 +663,97 @@
     .comparison-col {
       border-radius: var(--radius);
       padding: 40px 36px;
+      will-change: transform;
+      transition: transform 0.5s cubic-bezier(0.23,1,0.32,1);
+    }
+    .comparison-col.without {
+      background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
     }
-    .comparison-col.col-without {
-      background: var(--bg-card);
-    }
-    .comparison-col.col-with {
-      background: rgba(0,212,255,0.04);
-      border-color: var(--cyan-border);
+    .comparison-col.with {
+      background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
       position: relative;
       overflow: hidden;
     }
-    .comparison-col.col-with::before {
+    .comparison-col.with::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 65%);
+      pointer-events: none;
     }
 
-    .comparison-col-label {
+    .comparison-col-head {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 28px;
     }
-    .comparison-col-label-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .col-without .comparison-col-label-icon {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .col-with .comparison-col-label-icon {
-      background: var(--cyan-dim);
-      border: 1px solid var(--cyan-border);
-    }
-    .comparison-col-label span {
-      font-family: var(--head);
-      font-size: 14px;
+    .comparison-col-badge {
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-family: var(--body);
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    .col-without .comparison-col-label span { color: var(--gray); }
-    .col-with .comparison-col-label span { color: var(--cyan); }
+    .without .comparison-col-badge {
+      background: rgba(255,255,255,0.06);
+      color: var(--gray);
+      border: 1px solid var(--border-2);
+    }
+    .with .comparison-col-badge {
+      background: var(--cyan);
+      color: #080808;
+    }
 
-    .comparison-list {
+    .comparison-col h3 {
+      font-family: var(--head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .with .comparison-col h3 { color: var(--white); }
+
+    .comparison-items {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
-    .comparison-list li {
+    .comparison-items li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
       font-family: var(--body);
       font-size: 14.5px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
-    .col-without .comparison-list li { color: rgba(172,172,175,0.65); }
-    .col-with .comparison-list li { color: var(--white); }
+    .without .comparison-items li { color: rgba(172,172,175,0.7); }
+    .with .comparison-items li    { color: var(--white); }
 
-    .comp-icon {
-      width: 20px; height: 20px;
+    .comparison-items li .ci {
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
       flex-shrink: 0;
       margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
     }
-    .col-without .comp-icon {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
+    .without .comparison-items li .ci {
+      background: rgba(255,255,255,0.06);
       color: rgba(172,172,175,0.4);
     }
-    .col-with .comp-icon {
-      background: var(--cyan-dim);
-      border: 1px solid var(--cyan-border);
-      color: var(--cyan);
+    .with .comparison-items li .ci {
+      background: var(--cyan);
+      color: #080808;
     }
 
     /* ══════════════════════════════════════
@@ -851,11 +854,14 @@
       font-family: var(--body);
       font-size: 16px;
       color: var(--gray);
-      max-width: 460px;
+      max-width: 480px;
       margin: 0 auto 44px;
       line-height: 1.72;
     }
-    .cta-inner .btn { padding: 16px 44px; font-size: 16px; }
+    .cta-inner .btn {
+      padding: 16px 44px;
+      font-size: 16px;
+    }
 
     /* ══════════════════════════════════════
        FOOTER
@@ -876,6 +882,7 @@
       gap: 48px;
       margin-bottom: 52px;
     }
+    .footer-cols { display: flex; gap: 60px; }
     .footer-brand { max-width: 260px; }
     .footer-brand img { height: 58px; width: auto; margin-bottom: 20px; }
     .footer-brand p {
@@ -884,17 +891,6 @@
       color: rgba(172,172,175,0.65);
       line-height: 1.72;
     }
-    .footer-wordmark-fallback {
-      font-family: var(--head);
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      display: block;
-      margin-bottom: 20px;
-    }
-    .footer-wordmark-fallback span { color: var(--cyan); }
-    .footer-cols { display: flex; gap: 60px; }
     .footer-col h4 {
       font-family: var(--body);
       font-size: 10.5px;
@@ -917,7 +913,6 @@
       transition: color 0.15s;
     }
     .footer-col ul li a:hover { color: var(--white); }
-    .footer-col ul li a.active { color: var(--cyan); }
     .footer-bottom {
       display: flex;
       align-items: center;
@@ -951,13 +946,12 @@
       opacity: 1;
       transform: none;
     }
-
     [data-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0ms; }
-    [data-stagger] > [data-reveal]:nth-child(2) { transition-delay: 80ms; }
-    [data-stagger] > [data-reveal]:nth-child(3) { transition-delay: 160ms; }
-    [data-stagger] > [data-reveal]:nth-child(4) { transition-delay: 240ms; }
-    [data-stagger] > [data-reveal]:nth-child(5) { transition-delay: 320ms; }
-    [data-stagger] > [data-reveal]:nth-child(6) { transition-delay: 400ms; }
+    [data-stagger] > [data-reveal]:nth-child(2) { transition-delay: 100ms; }
+    [data-stagger] > [data-reveal]:nth-child(3) { transition-delay: 200ms; }
+    [data-stagger] > [data-reveal]:nth-child(4) { transition-delay: 300ms; }
+    [data-stagger] > [data-reveal]:nth-child(5) { transition-delay: 400ms; }
+    [data-stagger] > [data-reveal]:nth-child(6) { transition-delay: 500ms; }
 
     /* ══════════════════════════════════════
        HERO ENTRANCE ANIMATION
@@ -978,19 +972,33 @@
     @media (max-width: 900px) {
       :root { --pad: 24px; }
       .features-grid { grid-template-columns: 1fr 1fr; }
-      .comparison-grid { grid-template-columns: 1fr; }
       .benefits-cols { grid-template-columns: 1fr; gap: 48px; }
+      .comparison-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
-      .footer-top { flex-direction: column; }
+      .footer-top { flex-wrap: wrap; gap: 32px; }
       .footer-cols { flex-wrap: wrap; gap: 32px; }
       .nav-links a:not(.always-show) { display: none; }
     }
+    @media (max-width: 768px) {
+      .hero { padding: 90px var(--pad) 80px; }
+      .hero-shark { display: none; }
+      .section-wrap { padding: 72px var(--pad); }
+    }
     @media (max-width: 600px) {
       .features-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 0; padding: 70px var(--pad) 60px; }
       .hero h1 { font-size: 2.8rem; }
-      .hero-pills { gap: 6px; }
       .proof-inner { gap: 28px; }
       .proof-sep { display: none; }
+    }
+    @media (max-width: 480px) {
+      :root { --pad: 16px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 15px; }
+      .section-wrap { padding: 52px 16px; }
+    }
+    @media (hover: none) and (pointer: coarse) {
+      .cursor, .cursor-ring { display: none; }
     }
 
     /* ══════════════════════════════════════
@@ -1022,8 +1030,8 @@
     [data-theme="light"] .footer-col ul li a { color: rgba(255,255,255,0.5); }
     [data-theme="light"] .footer-col ul li a:hover { color: #fff; }
     [data-theme="light"] .footer-bottom { border-color: rgba(255,255,255,0.08); }
-    [data-theme="light"] .footer-bottom p { color: rgba(255,255,255,0.32); }
-    [data-theme="light"] .proof-sep { background: rgba(0,0,0,0.12); }
+    [data-theme="light"] .footer-tagline { color: rgba(255,255,255,0.32); opacity: 1; }
+    [data-theme="light"] .hero::after { height: 300px; }
 
     .theme-toggle {
       width: 34px; height: 34px; border-radius: 50%;
@@ -1040,6 +1048,85 @@
     #scrollBar { position:fixed; top:0; left:0; width:0; height:2px; background:var(--cyan); z-index:600; pointer-events:none; }
     /* ── Magnetic button: smoother transform ─────────── */
     .btn-cyan { transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.45s cubic-bezier(0.23,1,0.32,1); }
+    /* ══════════════════════════════════════
+       HAMBURGER & MOBILE MENU
+    ══════════════════════════════════════ */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      padding: 4px; z-index: 1001; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 998;
+      background: #090909; padding: 90px 28px 40px;
+      flex-direction: column; overflow-y: auto;
+      opacity: 0; transition: opacity 0.22s ease;
+    }
+    .mobile-menu.open { opacity: 1; }
+    .mobile-menu-label {
+      font-family: var(--body); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: rgba(172,172,175,0.38); margin-bottom: 4px;
+    }
+    .mobile-menu-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 15px 0; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu-link-icon { font-size: 1.3rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .mobile-menu-link-name {
+      font-family: var(--head); font-size: 1.1rem; font-weight: 700;
+      color: var(--white); line-height: 1.2;
+    }
+    .mobile-menu-link-sub {
+      font-family: var(--body); font-size: 12px;
+      color: rgba(172,172,175,0.45); margin-top: 2px;
+    }
+    .mobile-menu-sep { height: 1px; background: rgba(255,255,255,0.07); margin: 18px 0; }
+    .mobile-menu-nav-link {
+      display: block; padding: 13px 0;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .mobile-menu-nav-link:last-of-type { border-bottom: none; }
+    .mobile-menu-ctas {
+      margin-top: auto; padding-top: 28px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .mobile-menu-ctas .btn { justify-content: center; }
+    .mobile-menu-close {
+      position: absolute; top: 22px; right: 24px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.55); font-size: 22px;
+      cursor: pointer; padding: 6px; line-height: 1;
+      transition: color 0.2s;
+    }
+    .mobile-menu-close:hover { color: #fff; }
+    .mobile-menu-theme-btn {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 0; background: none; border: none;
+      font-family: var(--body); font-size: 15px; font-weight: 500;
+      color: rgba(172,172,175,0.65); cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      width: 100%; text-align: left;
+    }
+    .mobile-menu-theme-btn:hover { color: #fff; }
+    .mobile-menu-theme-icon { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-links { display: none !important; }
+      .nav-actions { display: none; }
+    }
   </style>
   <script>
     (function(){var t=localStorage.getItem('btd-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);})();
@@ -1083,7 +1170,7 @@
               <span class="dropdown-item-desc">CRM &amp; automation system</span>
             </div>
           </a>
-          <a href="meta-ads.html" class="dropdown-item active">
+          <a href="meta-ads.html" class="dropdown-item">
             <div class="dropdown-item-icon">📱</div>
             <div class="dropdown-item-text">
               <span class="dropdown-item-name">Predator Ads™</span>
@@ -1099,16 +1186,52 @@
           </a>
         </div>
       </div>
+      <a href="#features">What's Included</a>
       <a href="#process">How It Works</a>
-      <a href="#results">Results</a>
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">☀</button>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-outline">Free Audit</a>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Get Started</a>
+      <a href="contact.html" class="btn btn-outline">Free Audit</a>
+      <a href="contact.html" class="btn btn-cyan">Get Started</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <div class="mobile-menu-label">Services</div>
+  <a href="websites.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">🖥️</span>
+    <div><div class="mobile-menu-link-name">Apex Sites™</div><div class="mobile-menu-link-sub">Websites that convert</div></div>
+  </a>
+  <a href="sharkflow.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">⚡</span>
+    <div><div class="mobile-menu-link-name">Shark Flow™</div><div class="mobile-menu-link-sub">CRM &amp; automation system</div></div>
+  </a>
+  <a href="meta-ads.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📱</span>
+    <div><div class="mobile-menu-link-name">Predator Ads™</div><div class="mobile-menu-link-sub">Meta advertising</div></div>
+  </a>
+  <a href="gbp.html" class="mobile-menu-link">
+    <span class="mobile-menu-link-icon">📍</span>
+    <div><div class="mobile-menu-link-name">Pack Leader™</div><div class="mobile-menu-link-sub">Google Business &amp; local SEO</div></div>
+  </a>
+  <div class="mobile-menu-sep"></div>
+  <a href="index.html" class="mobile-menu-nav-link">Home</a>
+  <a href="index.html#process" class="mobile-menu-nav-link">How It Works</a>
+  <a href="contact.html" class="mobile-menu-nav-link">Contact</a>
+  <button class="mobile-menu-theme-btn" id="themeToggleMobile">
+    <span class="mobile-menu-theme-icon">☀</span>
+    <span>Toggle light / dark</span>
+  </button>
+  <div class="mobile-menu-ctas">
+    <a href="contact.html" class="btn btn-outline">Free Audit</a>
+    <a href="contact.html" class="btn btn-cyan">Get Started</a>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════════
@@ -1123,23 +1246,22 @@
   <div class="hero-inner">
     <div class="eyebrow anim-1">Facebook &amp; Instagram Advertising</div>
 
-    <h1 class="anim-2">Predator <span class="accent">Ads™</span></h1>
+    <h1 class="anim-2">Predator Ads™</h1>
 
     <p class="hero-sub anim-3">
-      Most local businesses waste money on ads that bring clicks but not customers. Predator Ads™ are hyper-targeted Meta campaigns built to bring real booked jobs — tracked, optimized, and accountable.
+      Running Facebook and Instagram ads without a system is burning money. Predator Ads™ builds campaigns targeted to your exact market, optimized daily, and connected to a follow-up system that books the jobs.
     </p>
 
     <div class="hero-pills anim-4">
-      <span class="hero-pill">Facebook</span>
-      <span class="hero-pill">Instagram</span>
-      <span class="hero-pill">Local Targeting</span>
-      <span class="hero-pill">Daily Optimization</span>
+      <span class="hero-pill">Facebook Ads</span>
+      <span class="hero-pill">Instagram Ads</span>
       <span class="hero-pill">Retargeting</span>
+      <span class="hero-pill">Lead Funnels</span>
     </div>
 
     <div class="hero-ctas anim-5">
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Get a Free Audit →</a>
-      <a href="#process" class="btn btn-outline">See Our Process</a>
+      <a href="contact.html" class="btn btn-cyan">Get a Free Ad Audit →</a>
+      <a href="#process" class="btn btn-outline">See How It Works</a>
     </div>
   </div>
 
@@ -1156,78 +1278,77 @@
 <div class="proof" data-reveal>
   <div class="proof-inner wrap">
     <div class="proof-item">
-      <div class="proof-num">2<span class="c">×</span></div>
-      <div class="proof-label">Average ROAS for local service campaigns</div>
+      <div class="proof-num"><span class="c">2.4×</span></div>
+      <div class="proof-label">Average ROAS for our clients</div>
     </div>
     <div class="proof-sep"></div>
     <div class="proof-item">
-      <div class="proof-num" style="font-size:2rem;">Local</div>
-      <div class="proof-label">Hyper-targeted to your service area</div>
+      <div class="proof-num"><span class="c">&lt; $30</span></div>
+      <div class="proof-label">Average cost per qualified lead</div>
     </div>
     <div class="proof-sep"></div>
     <div class="proof-item">
-      <div class="proof-num" style="font-size:2rem;">Daily</div>
-      <div class="proof-label">Optimization cadence</div>
+      <div class="proof-num"><span class="c">48hr</span></div>
+      <div class="proof-label">Time to first live campaign</div>
     </div>
     <div class="proof-sep"></div>
     <div class="proof-item">
-      <div class="proof-num" style="font-size:2rem;">Meta</div>
-      <div class="proof-label">Facebook + Instagram combined</div>
+      <div class="proof-num"><span class="c">Daily</span></div>
+      <div class="proof-label">Optimization and monitoring</div>
     </div>
   </div>
 </div>
 
 
 <!-- ════════════════════════════════════════════
-     FEATURES GRID
+     WHAT'S INCLUDED — Features Grid
 ════════════════════════════════════════════ -->
-<section class="features-bg">
+<section id="features" class="features-bg">
   <div class="section-wrap">
     <div class="features-header" data-reveal>
       <div class="section-eyebrow">What's Included</div>
-      <h2 class="section-h2">Ads Built for Local Service Businesses.<br>Not Guesswork.</h2>
-      <p class="section-sub">Every campaign is purpose-built for your market, your customers, and your competition.</p>
+      <h2 class="section-h2">Ads Built to Bring in Booked Jobs.</h2>
+      <p class="section-sub">Six components that turn your ad spend into a predictable lead pipeline.</p>
     </div>
 
-    <div class="features-grid" id="featuresGrid" data-stagger>
+    <div class="features-grid" data-stagger>
       <div class="grid-glow" id="featuresGlow"></div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">🎯</div>
         <h3>Hyper-Local Targeting</h3>
-        <p>We reach homeowners and buyers in your exact service area — not random clicks from across the country. Every dollar targets the people most likely to call you.</p>
+        <p>We target your exact service area with the exact demographics that hire businesses like yours. No wasted spend on the wrong audience.</p>
       </div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">📸</div>
         <h3>Creative That Converts</h3>
-        <p>Ad creative built specifically for home services and med spas. We know the hooks, the visuals, and the copy that makes your customers stop scrolling and click.</p>
+        <p>Ad creative built for your market. Images and copy tested to stop the scroll and get clicks from real buyers, not browsers.</p>
       </div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">🔄</div>
-        <h3>Retargeting System</h3>
-        <p>Website visitors, video viewers, and past leads get re-engaged with follow-up ads. Most customers need to see you multiple times before they call — we make sure they do.</p>
+        <h3>Retargeting Sequences</h3>
+        <p>Visitors who don't convert the first time get followed up with strategic retargeting ads. We stay in front of them until they're ready.</p>
       </div>
 
       <div class="feature-card" data-reveal>
-        <div class="feature-icon">👥</div>
-        <h3>Lookalike Audiences</h3>
-        <p>We build audiences that look just like your best customers, then target them with precision. More of the right people, fewer wasted impressions.</p>
+        <div class="feature-icon">📋</div>
+        <h3>Lead Funnel Integration</h3>
+        <p>Every ad click goes into a funnel built to capture lead information and feed it directly into Shark Flow™ for instant follow-up.</p>
       </div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">📊</div>
-        <h3>Daily Campaign Optimization</h3>
-        <p>We monitor and adjust your campaigns every single day. Budgets, bids, creative, audiences — nothing sits static. No set-it-and-forget-it here.</p>
+        <h3>Daily Optimization</h3>
+        <p>We monitor and adjust your campaigns every single day. Scaling what works, cutting what doesn't. No set-it-and-forget-it.</p>
       </div>
 
       <div class="feature-card" data-reveal>
         <div class="feature-icon">📈</div>
-        <h3>Transparent Reporting</h3>
-        <p>You always know exactly what your ads are doing. Real numbers, real ROI, no vanity metrics. We show you cost per lead, cost per booking, and revenue generated.</p>
+        <h3>Monthly Performance Reports</h3>
+        <p>Clear breakdowns of spend, leads, cost-per-lead, and booked jobs. You always know exactly what your ad budget is producing.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1236,46 +1357,25 @@
 <!-- ════════════════════════════════════════════
      BENEFITS
 ════════════════════════════════════════════ -->
-<section id="results" class="benefits-bg">
+<section id="benefits" class="benefits-bg">
   <div class="section-wrap">
     <div class="benefits-cols">
-      <div class="benefits-left" data-reveal>
+      <div data-reveal>
         <div class="section-eyebrow">The Results</div>
-        <h2 class="section-h2">Ads That Pay<br>for Themselves.</h2>
-        <p class="benefits-body">
-          Bad ads burn money. Good ads are the most predictable growth lever a local business has. When the targeting is right, the creative converts, and the follow-up is automated — every dollar in comes back as multiple dollars out.
-        </p>
+        <h2 class="section-h2">Your Competitors Are Running Ads. The Question Is Who's Running Them Better.</h2>
+        <p class="benefits-body">Predator Ads™ isn't just traffic. Every campaign is built to generate leads that actually answer the phone and book jobs. Paired with Shark Flow™, every lead gets followed up automatically so nothing slips through.</p>
         <ul class="includes-list">
-          <li>A steady stream of qualified local leads</li>
-          <li>Ad spend that's tracked and accountable</li>
-          <li>Creative that improves over time with real data</li>
-          <li>Retargeting that keeps you top of mind</li>
-          <li>Campaigns connected to Shark Flow™ for instant follow-up</li>
+          <li>Generate consistent leads from Facebook and Instagram</li>
+          <li>Reach homeowners in your area who are actively looking</li>
+          <li>Retarget visitors who showed interest but didn't convert</li>
+          <li>Pair with Shark Flow™ to follow up on every lead instantly</li>
+          <li>Know your exact cost-per-lead and return on ad spend</li>
         </ul>
       </div>
-
       <div data-reveal>
         <div class="img-placeholder">
-          <div class="img-placeholder-icon">📊</div>
-          <div class="img-placeholder-mock">
-            <div class="mock-row">
-              <div class="mock-bar-wrap"><div class="mock-bar" style="width:82%"></div></div>
-              <span class="mock-label">ROAS 2.4×</span>
-            </div>
-            <div class="mock-row">
-              <div class="mock-bar-wrap"><div class="mock-bar" style="width:67%"></div></div>
-              <span class="mock-label">CTR 3.1%</span>
-            </div>
-            <div class="mock-row">
-              <div class="mock-bar-wrap"><div class="mock-bar" style="width:91%"></div></div>
-              <span class="mock-label">CPL $18</span>
-            </div>
-            <div class="mock-row">
-              <div class="mock-bar-wrap"><div class="mock-bar" style="width:55%"></div></div>
-              <span class="mock-label">Conv. 12%</span>
-            </div>
-          </div>
-          <p>Campaign dashboard &amp; results —<br>image coming soon</p>
+          <div class="img-placeholder-icon">📱</div>
+          <span>Predator Ads™ dashboard — image coming soon</span>
         </div>
       </div>
     </div>
@@ -1286,69 +1386,42 @@
 <!-- ════════════════════════════════════════════
      COMPARISON
 ════════════════════════════════════════════ -->
-<section class="comparison-bg">
+<section id="comparison" class="comparison-bg">
   <div class="section-wrap">
     <div class="comparison-header" data-reveal>
       <div class="section-eyebrow">Why It Matters</div>
-      <h2 class="section-h2">The Difference Between <span class="accent">Clicks and Customers.</span></h2>
+      <h2 class="section-h2">The Wrong Ads Strategy Burns Money. The Right One Prints It.</h2>
+      <p class="section-sub">Most local ad campaigns fail not because of budget but because of setup.</p>
     </div>
 
-    <div class="comparison-grid">
-      <div class="comparison-col col-without" data-reveal>
-        <div class="comparison-col-label">
-          <div class="comparison-col-label-icon">✕</div>
-          <span>Without Predator Ads™</span>
+    <div class="comparison-grid" data-stagger>
+      <div class="comparison-col without" data-reveal>
+        <div class="comparison-col-head">
+          <span class="comparison-col-badge">Without Predator Ads™</span>
         </div>
-        <ul class="comparison-list">
-          <li>
-            <span class="comp-icon">✕</span>
-            Boosted posts with no real targeting
-          </li>
-          <li>
-            <span class="comp-icon">✕</span>
-            Money spent on people outside your service area
-          </li>
-          <li>
-            <span class="comp-icon">✕</span>
-            No retargeting for website visitors
-          </li>
-          <li>
-            <span class="comp-icon">✕</span>
-            No tracking of actual ROI
-          </li>
-          <li>
-            <span class="comp-icon">✕</span>
-            Creative that blends in with everything else
-          </li>
+        <h3>The Typical Local Ad Campaign</h3>
+        <br>
+        <ul class="comparison-items">
+          <li><span class="ci">✕</span> Generic targeting that reaches the wrong people</li>
+          <li><span class="ci">✕</span> Ad creative that blends in and gets ignored</li>
+          <li><span class="ci">✕</span> No retargeting for visitors who don't convert</li>
+          <li><span class="ci">✕</span> Leads landing in a form with no follow-up system</li>
+          <li><span class="ci">✕</span> No data on what's actually working</li>
         </ul>
       </div>
 
-      <div class="comparison-col col-with" data-reveal>
-        <div class="comparison-col-label">
-          <div class="comparison-col-label-icon">✓</div>
-          <span>With Predator Ads™</span>
+      <div class="comparison-col with" data-reveal>
+        <div class="comparison-col-head">
+          <span class="comparison-col-badge">With Predator Ads™</span>
         </div>
-        <ul class="comparison-list">
-          <li>
-            <span class="comp-icon">✓</span>
-            Precision targeting to your exact market
-          </li>
-          <li>
-            <span class="comp-icon">✓</span>
-            Every dollar focused on qualified local buyers
-          </li>
-          <li>
-            <span class="comp-icon">✓</span>
-            Retargeting system that stays in front of warm prospects
-          </li>
-          <li>
-            <span class="comp-icon">✓</span>
-            Full ROI tracking from click to booked job
-          </li>
-          <li>
-            <span class="comp-icon">✓</span>
-            Creative designed to stop the scroll
-          </li>
+        <h3>The Predator Ads™ Approach</h3>
+        <br>
+        <ul class="comparison-items">
+          <li><span class="ci">✓</span> Hyper-local targeting dialed in to your exact buyers</li>
+          <li><span class="ci">✓</span> Tested creative built specifically for your market</li>
+          <li><span class="ci">✓</span> Full retargeting sequence to capture missed conversions</li>
+          <li><span class="ci">✓</span> Every lead feeding directly into Shark Flow™</li>
+          <li><span class="ci">✓</span> Daily optimization with monthly reporting you can act on</li>
         </ul>
       </div>
     </div>
@@ -1362,25 +1435,26 @@
 <section id="process" class="process-bg">
   <div class="section-wrap">
     <div data-reveal>
-      <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-h2">From Launch to <span class="accent">Leads in Days.</span></h2>
+      <div class="section-eyebrow">The Process</div>
+      <h2 class="section-h2">Live in 48 Hours. Optimized Every Day After.</h2>
+      <p class="section-sub">We move fast and we stay on it.</p>
     </div>
 
     <div class="steps-grid" data-stagger>
       <div class="step-card" data-reveal>
         <span class="step-num">01</span>
-        <h3>Audit &amp; Strategy</h3>
-        <p>We review your current ad account, your market, and your competitors. Then we build a campaign strategy designed to win in your specific area — not a generic template.</p>
+        <h3>Audit and Strategy</h3>
+        <p>We review your market, your competitors, and your budget. Then we build a campaign strategy designed to generate leads at the lowest possible cost.</p>
       </div>
       <div class="step-card" data-reveal>
         <span class="step-num">02</span>
-        <h3>Build &amp; Launch</h3>
-        <p>We create the ad creative, write the copy, set up the targeting, and launch. Every detail is optimized before we spend a dollar.</p>
+        <h3>Build and Launch</h3>
+        <p>We create the targeting, the creative, and the funnel. Your campaign goes live within 48 hours of kickoff.</p>
       </div>
       <div class="step-card" data-reveal>
         <span class="step-num">03</span>
-        <h3>Optimize Daily</h3>
-        <p>Once live, we monitor performance every day. We cut what's not working and scale what is. Your results improve every week — not plateau.</p>
+        <h3>Optimize and Scale</h3>
+        <p>We monitor your campaigns daily, cutting underperformers and scaling what works. Your cost-per-lead goes down while your lead volume goes up.</p>
       </div>
     </div>
   </div>
@@ -1392,10 +1466,10 @@
 ════════════════════════════════════════════ -->
 <section class="cta-bg">
   <div class="cta-inner">
-    <h2 data-reveal>Ready to Run Ads That<br>Actually Work?</h2>
-    <p data-reveal>Your competitors are running ads right now. The question is whether theirs are better than yours. Let's make sure they're not.</p>
+    <h2 data-reveal>Ready to Turn Ad Spend Into Booked Jobs?</h2>
+    <p data-reveal>Every day you're not running optimized ads is a day your competitors are showing up where you're not.</p>
     <div data-reveal>
-      <a href="mailto:hello@blacktipdigital.com" class="btn btn-cyan">Get Your Free Ad Audit →</a>
+      <a href="contact.html" class="btn btn-cyan">Get a Free Ad Audit →</a>
     </div>
   </div>
 </section>
@@ -1412,10 +1486,8 @@
           src="Brand/Logo/White BTD Wordmark trans.svg"
           alt="Blacktip Digital"
           height="58"
-          id="footerWordmark"
-          onerror="this.style.display='none'; document.getElementById('footerWordmarkFallback').style.display='block';"
+          onerror="this.style.display='none'"
         >
-        <strong class="footer-wordmark-fallback" id="footerWordmarkFallback" style="display:none;">Blacktip<span>.</span></strong>
         <p>Full-stack digital agency serving local service businesses across the US. Zero fluff. Zero excuses. Just results.</p>
       </div>
       <div class="footer-cols">
@@ -1424,17 +1496,16 @@
           <ul>
             <li><a href="websites.html">Apex Sites™</a></li>
             <li><a href="sharkflow.html">Shark Flow™</a></li>
-            <li><a href="meta-ads.html" class="active">Predator Ads™</a></li>
+            <li><a href="meta-ads.html">Predator Ads™</a></li>
             <li><a href="gbp.html">Pack Leader™</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#process">How It Works</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="index.html#process">How It Works</a></li>
             <li><a href="index.html">Home</a></li>
-            <li><a href="mailto:hello@blacktipdigital.com">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1457,10 +1528,13 @@
 
 
 <!-- ════════════════════════════════════════════
-     JAVASCRIPT
+     JAVASCRIPT — Cursor, Nav, Scroll Reveal, Smooth Scroll
 ════════════════════════════════════════════ -->
 <script>
 (function () {
+
+  /* ── HERO ENTRANCE ── */
+  document.body.classList.add('anim-ready');
 
   /* ── CUSTOM CURSOR ── */
   const dot  = document.getElementById('cursor');
@@ -1492,7 +1566,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ── TOP HIGHLIGHT + CURSOR X PER FEATURE CARD ── */
+  /* ── FEATURE CARD TOP HIGHLIGHT ── */
   document.querySelectorAll('.feature-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
@@ -1501,33 +1575,28 @@
     card.addEventListener('mouseleave', () => card.style.setProperty('--cursor-x', '50%'));
   });
 
-  /* ── CURSOR-TRACKING GLOW across features grid ── */
-  const featuresGrid = document.getElementById('featuresGrid');
-  const featuresGlow = document.getElementById('featuresGlow');
-  if (featuresGrid && featuresGlow) {
-    featuresGrid.addEventListener('mouseenter', () => { featuresGlow.style.opacity = '1'; });
-    featuresGrid.addEventListener('mouseleave', () => { featuresGlow.style.opacity = '0'; });
+  /* ── CURSOR-TRACKING GLOW — features grid ── */
+  const featuresGrid = document.querySelector('.features-grid');
+  const gridGlow     = document.getElementById('featuresGlow');
+  if (featuresGrid && gridGlow) {
+    featuresGrid.addEventListener('mouseenter', () => { gridGlow.style.opacity = '1'; });
+    featuresGrid.addEventListener('mouseleave', () => { gridGlow.style.opacity = '0'; });
     featuresGrid.addEventListener('mousemove', e => {
       const r = featuresGrid.getBoundingClientRect();
-      featuresGlow.style.left = (e.clientX - r.left) + 'px';
-      featuresGlow.style.top  = (e.clientY - r.top)  + 'px';
+      gridGlow.style.left = (e.clientX - r.left) + 'px';
+      gridGlow.style.top  = (e.clientY - r.top)  + 'px';
     });
   }
 
   /* ── SMOOTH ANCHOR SCROLL ── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id === '#') return;
-      const target = document.querySelector(id);
+      const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
     });
   });
-
-  /* ── HERO ENTRANCE ── */
-  document.body.classList.add('anim-ready');
 
   /* ── SCROLL REVEAL ── */
   document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('will-reveal'));
@@ -1542,6 +1611,25 @@
   }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+  /* ── COMPARISON CARD 3D TILT ── */
+  document.querySelectorAll('.comparison-col').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      var rect = card.getBoundingClientRect();
+      var x  = e.clientX - rect.left;
+      var y  = e.clientY - rect.top;
+      var cx = rect.width  / 2;
+      var cy = rect.height / 2;
+      var rotY =  ((x - cx) / cx) * 8;
+      var rotX = -((y - cy) / cy) * 6;
+      card.style.transition = 'transform 0.08s ease';
+      card.style.transform  = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale3d(1.02,1.02,1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1)';
+      card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
 
 })();
 
@@ -1572,7 +1660,7 @@
 
 // ── Magnetic CTA buttons ───────────────────────────────────────────
 (function(){
-  var btns      = Array.from(document.querySelectorAll('.btn-cyan, .nav-cta'));
+  var btns      = Array.from(document.querySelectorAll('.btn-primary, .btn-cyan, .nav-cta'));
   var strength  = 0.45;
   var threshold = 110;
   document.addEventListener('mousemove', function(e) {
@@ -1591,6 +1679,49 @@
       }
     });
   }, { passive: true });
+})();
+
+// ── Mobile hamburger menu ─────────────────────────────────────────
+(function(){
+  var hamburger = document.getElementById('navHamburger');
+  var menu = document.getElementById('mobileMenu');
+  var closeBtn = document.getElementById('mobileMenuClose');
+  var mobileThemeBtn = document.getElementById('themeToggleMobile');
+  if (!hamburger || !menu) return;
+  function openMenu() {
+    menu.style.display = 'flex';
+    requestAnimationFrame(function(){ menu.classList.add('open'); });
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(function(){ menu.style.display = ''; }, 230);
+  }
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+  if (mobileThemeBtn) {
+    var icon = mobileThemeBtn.querySelector('.mobile-menu-theme-icon');
+    function syncIcon() {
+      if (icon) icon.textContent = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? '☀' : '☾';
+    }
+    syncIcon();
+    mobileThemeBtn.addEventListener('click', function() {
+      var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('btd-theme', t);
+      var main = document.getElementById('themeToggle');
+      if (main) main.textContent = t === 'dark' ? '☀' : '☾';
+      syncIcon();
+    });
+  }
 })();
 </script>
 
