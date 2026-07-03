@@ -1,0 +1,24 @@
+# ── Secrets / credentials (never commit) ──
+*token*.txt
+*.env
+.env*
+.mcp.json
+*secret*
+*.pem
+*.key
+credentials*.json
+
+# ── OneDrive conflict copies ──
+*-DESKTOP-*
+
+node_modules/
+package.json
+package-lock.json
+*.png
+!Brand/**/*.png
+!Website Icons/**/*.png
+github-personal-access-token.txt
+shot.js
+todo.txt
+Domains/
+*.docx
