@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pack Leader™ — Google Business Profile & Local SEO | Blacktip Digital</title>
   <meta name="description" content="Pack Leader™ by Blacktip Digital puts your business at the top of Google Maps and local search. GBP optimization, review generation, citation building, and rank tracking.">
+  <link rel="canonical" href="https://blacktipdigital.com/gbp.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Blacktip Digital">
+  <meta property="og:title" content="Pack Leader™ — Google Business Profile & Local SEO | Blacktip Digital">
+  <meta property="og:description" content="Pack Leader™ by Blacktip Digital puts your business at the top of Google Maps and local search. GBP optimization, review generation, citation building, and rank tracking.">
+  <meta property="og:url" content="https://blacktipdigital.com/gbp.html">
+  <meta property="og:image" content="https://blacktipdigital.com/Brand/SharkLogo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pack Leader™ — Google Business Profile & Local SEO | Blacktip Digital">
+  <meta name="twitter:description" content="Pack Leader™ by Blacktip Digital puts your business at the top of Google Maps and local search. GBP optimization, review generation, citation building, and rank tracking.">
+  <meta name="twitter:image" content="https://blacktipdigital.com/Brand/SharkLogo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -1130,6 +1141,14 @@
       .nav-links { display: none !important; }
       .nav-actions { display: none; }
     }
+    /* Touch / coarse-pointer devices: restore native cursor */
+    @media (pointer: coarse), (hover: none) {
+      *, *::before, *::after { cursor: auto !important; }
+      .cursor, .cursor-ring { display: none !important; }
+    }
+    /* Minimal service icons — inherit size from parent font-size, theme-aware color */
+    .svc-ico { width: 1em; height: 1em; display: inline-block; vertical-align: -0.12em; color: var(--cyan); }
+    [data-theme="light"] .svc-ico { color: #0086ad; }
   </style>
   <script>
     (function(){var t=localStorage.getItem('btd-theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);})();
@@ -1160,28 +1179,28 @@
         <span class="nav-dropdown-trigger">Services <span class="nav-chevron">▾</span></span>
         <div class="nav-dropdown-menu">
           <a href="websites.html" class="dropdown-item">
-            <div class="dropdown-item-icon">🖥️</div>
+            <div class="dropdown-item-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13.5" rx="2"/><path d="M8.5 21h7M12 17.5V21"/></svg></div>
             <div class="dropdown-item-text">
               <span class="dropdown-item-name">Apex Sites™</span>
               <span class="dropdown-item-desc">Websites that convert</span>
             </div>
           </a>
           <a href="sharkflow.html" class="dropdown-item">
-            <div class="dropdown-item-icon">⚡</div>
+            <div class="dropdown-item-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5 4.5 13.5h6l-1 8 8.5-11h-6l1-8z"/></svg></div>
             <div class="dropdown-item-text">
               <span class="dropdown-item-name">Shark Flow™</span>
               <span class="dropdown-item-desc">CRM &amp; automation system</span>
             </div>
           </a>
           <a href="meta-ads.html" class="dropdown-item">
-            <div class="dropdown-item-icon">📱</div>
+            <div class="dropdown-item-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.75 18.5h2.5"/></svg></div>
             <div class="dropdown-item-text">
               <span class="dropdown-item-name">Predator Ads™</span>
               <span class="dropdown-item-desc">Meta advertising</span>
             </div>
           </a>
           <a href="gbp.html" class="dropdown-item">
-            <div class="dropdown-item-icon">📍</div>
+            <div class="dropdown-item-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5c4.5-4.2 7-7.8 7-11a7 7 0 1 0-14 0c0 3.2 2.5 6.8 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
             <div class="dropdown-item-text">
               <span class="dropdown-item-name">Pack Leader™</span>
               <span class="dropdown-item-desc">Google Business &amp; local SEO</span>
@@ -1191,6 +1210,7 @@
       </div>
       <a href="#features">What's Included</a>
       <a href="#process">How It Works</a>
+      <a href="results.html">Results</a>
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">☀</button>
@@ -1207,24 +1227,25 @@
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
   <div class="mobile-menu-label">Services</div>
   <a href="websites.html" class="mobile-menu-link">
-    <span class="mobile-menu-link-icon">🖥️</span>
+    <span class="mobile-menu-link-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13.5" rx="2"/><path d="M8.5 21h7M12 17.5V21"/></svg></span>
     <div><div class="mobile-menu-link-name">Apex Sites™</div><div class="mobile-menu-link-sub">Websites that convert</div></div>
   </a>
   <a href="sharkflow.html" class="mobile-menu-link">
-    <span class="mobile-menu-link-icon">⚡</span>
+    <span class="mobile-menu-link-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5 4.5 13.5h6l-1 8 8.5-11h-6l1-8z"/></svg></span>
     <div><div class="mobile-menu-link-name">Shark Flow™</div><div class="mobile-menu-link-sub">CRM &amp; automation system</div></div>
   </a>
   <a href="meta-ads.html" class="mobile-menu-link">
-    <span class="mobile-menu-link-icon">📱</span>
+    <span class="mobile-menu-link-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.75 18.5h2.5"/></svg></span>
     <div><div class="mobile-menu-link-name">Predator Ads™</div><div class="mobile-menu-link-sub">Meta advertising</div></div>
   </a>
   <a href="gbp.html" class="mobile-menu-link">
-    <span class="mobile-menu-link-icon">📍</span>
+    <span class="mobile-menu-link-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5c4.5-4.2 7-7.8 7-11a7 7 0 1 0-14 0c0 3.2 2.5 6.8 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
     <div><div class="mobile-menu-link-name">Pack Leader™</div><div class="mobile-menu-link-sub">Google Business &amp; local SEO</div></div>
   </a>
   <div class="mobile-menu-sep"></div>
   <a href="index.html" class="mobile-menu-nav-link">Home</a>
   <a href="index.html#process" class="mobile-menu-nav-link">How It Works</a>
+  <a href="results.html" class="mobile-menu-nav-link">Results</a>
   <a href="contact.html" class="mobile-menu-nav-link">Contact</a>
   <button class="mobile-menu-theme-btn" id="themeToggleMobile">
     <span class="mobile-menu-theme-icon">☀</span>
@@ -1318,7 +1339,7 @@
       <div class="grid-glow" id="featuresGlow"></div>
 
       <div class="feature-card" data-reveal>
-        <div class="feature-icon">📍</div>
+        <div class="feature-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5c4.5-4.2 7-7.8 7-11a7 7 0 1 0-14 0c0 3.2 2.5 6.8 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
         <h3>GBP Profile Optimization</h3>
         <p>A fully optimized Google Business Profile tells Google your business is credible, relevant, and active. We handle every detail: categories, descriptions, photos, services, and attributes.</p>
       </div>
@@ -1377,7 +1398,7 @@
       </div>
       <div data-reveal>
         <div class="img-placeholder">
-          <div class="img-placeholder-icon">📍</div>
+          <div class="img-placeholder-icon"><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5c4.5-4.2 7-7.8 7-11a7 7 0 1 0-14 0c0 3.2 2.5 6.8 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
           <span>Local rankings dashboard — image coming soon</span>
         </div>
       </div>
@@ -1502,16 +1523,24 @@
           <h4>Company</h4>
           <ul>
             <li><a href="index.html#process">How It Works</a></li>
+            <li><a href="results.html">Results</a></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
           <h4>Connect</h4>
           <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <!-- <li><a href="#">Instagram</a></li> -->
+            <li><a href="https://www.facebook.com/profile.php?id=100089616163703" target="_blank" rel="noopener">Facebook</a></li>
+            <!-- <li><a href="#">LinkedIn</a></li> -->
             <li><a href="mailto:hello@blacktipdigital.com">Email Us</a></li>
           </ul>
         </div>
@@ -1519,6 +1548,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Blacktip Digital. All rights reserved.</span>
+      <span style="display:inline-flex;gap:16px;align-items:center;"><a href="privacy.html" style="color:inherit;transition:color 0.15s;">Privacy Policy</a><a href="terms.html" style="color:inherit;transition:color 0.15s;">Terms of Service</a></span>
       <span class="footer-tagline">Be the Apex Predator of Your Industry.</span>
     </div>
   </div>
@@ -1589,7 +1619,8 @@
   /* ── SMOOTH ANCHOR SCROLL ── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
+      const href = a.getAttribute('href');
+      const target = href.length > 1 ? document.querySelector(href) : null;
       if (!target) return;
       e.preventDefault();
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
@@ -1661,7 +1692,11 @@
   var btns      = Array.from(document.querySelectorAll('.btn-primary, .btn-cyan, .nav-cta'));
   var strength  = 0.45;
   var threshold = 110;
-  document.addEventListener('mousemove', function(e) {
+  var lastEvt   = null;
+  var queued    = false;
+  function applyMagnet() {
+    queued = false;
+    var e = lastEvt;
     btns.forEach(function(btn) {
       var r    = btn.getBoundingClientRect();
       var cx   = r.left + r.width  / 2;
@@ -1676,6 +1711,10 @@
         btn.style.transform = '';
       }
     });
+  }
+  document.addEventListener('mousemove', function(e) {
+    lastEvt = e;
+    if (!queued) { queued = true; requestAnimationFrame(applyMagnet); }
   }, { passive: true });
 })();
 
